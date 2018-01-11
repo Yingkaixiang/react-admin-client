@@ -6,6 +6,7 @@ import {
   BackTop,
   Menu,
   LocaleProvider,
+  notification,
 } from 'antd';
 import { connect } from 'dva';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
@@ -13,6 +14,7 @@ import styles from './App.less';
 
 import ImageViewer from '../components/ImageViewer/';
 import DetailPanel from '../components/DetailPanel/';
+import { clearTimeout } from 'timers';
 
 const {
   Sider,
@@ -24,6 +26,19 @@ const {
 const SubMenu = Menu.SubMenu;
 
 function App({ children, dispatch }) {
+
+  // 模拟消息
+  let timer = null;
+  setInterval(() => {
+    const random = Math.round(Math.random() * 500000);
+    timer = setTimeout(() => {
+      notification.open({
+        message: '后台消息通知',
+        description: '您有一条新的消息，请及时查看',
+        placement: 'bottomRight',
+      })
+    }, random)
+  }, 1000);
 
   return (
     <LocaleProvider locale={zhCN}>
