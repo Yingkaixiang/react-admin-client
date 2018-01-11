@@ -12,6 +12,7 @@ const app = dva({
 
 // 3. Model
 app.model(require('./models/components/imageViewer').default);
+app.model(require('./models/components/detailPanel').default);
 
 // 4. Router
 app.router(require('./router').default);

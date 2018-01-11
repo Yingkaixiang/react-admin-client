@@ -10,7 +10,9 @@ import {
 import { connect } from 'dva';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import styles from './App.less';
+
 import ImageViewer from '../components/ImageViewer/';
+import DetailPanel from '../components/DetailPanel/';
 
 const {
   Sider,
@@ -22,10 +24,12 @@ const {
 const SubMenu = Menu.SubMenu;
 
 function App({ children, dispatch }) {
+
   return (
     <LocaleProvider locale={zhCN}>
       <Layout className={styles.layout}>
         <ImageViewer />
+        <DetailPanel />
         <Sider
           breakpoint="md"
           collapsedWidth="0"
