@@ -1,23 +1,37 @@
 import React from 'react';
-import { connect } from 'dva';
-import { Button } from 'antd';
-import styles from './IndexPage.css';
+import { Layout, Icon } from 'antd';
+import styles from './App.less';
 
-function IndexPage() {
+const {
+  Sider,
+  Header,
+  Content,
+  Footer,
+} = Layout;
+
+function App() {
   return (
-    <div className={styles.normal}>
-      <Button>点我！</Button>
-      <h1 className={styles.title}>Yay! Welcome to dva!</h1>
-      <div className={styles.welcome} />
-      <ul className={styles.list}>
-        <li>To get started, edit <code>src/index.js</code> and save to reload.</li>
-        <li><a href="https://github.com/dvajs/dva-docs/blob/master/v1/en-us/getting-started.md">Getting Started</a></li>
-      </ul>
-    </div>
+    <Layout className={styles.layout}>
+      <Sider
+        breakpoint="md"
+        collapsedWidth="0"
+        width={240}
+      />
+      <Layout>
+        <Header className={styles.header}>
+          <div className={styles.trigger}>
+            <Icon type="menu-fold" />
+          </div>
+        </Header>
+        <Content className={styles.content}>
+          <div className={styles.main}>123</div>
+        </Content>
+        <Footer className={styles.footer}>©2018 Created by Yingkaixiang</Footer>
+      </Layout>
+    </Layout>
   );
 }
 
-IndexPage.propTypes = {
-};
+App.propTypes = {};
 
-export default connect()(IndexPage);
+export default App;
