@@ -14,7 +14,6 @@ import styles from './App.less';
 
 import ImageViewer from '../components/ImageViewer/';
 import DetailPanel from '../components/DetailPanel/';
-import { clearTimeout } from 'timers';
 
 const {
   Sider,
@@ -25,20 +24,24 @@ const {
 
 const SubMenu = Menu.SubMenu;
 
-function App({ children, dispatch }) {
+// 模拟消息
+setInterval(() => {
+  notification.open({
+    message: '后台消息通知',
+    description: '您有一条新的消息，请及时查看',
+    placement: 'bottomRight',
+  })
+}, 10000);
 
-  // 模拟消息
-  let timer = null;
-  setInterval(() => {
-    const random = Math.round(Math.random() * 500000);
-    timer = setTimeout(() => {
-      notification.open({
-        message: '后台消息通知',
-        description: '您有一条新的消息，请及时查看',
-        placement: 'bottomRight',
-      })
-    }, random)
-  }, 1000);
+function App({ children, dispatch, collapsed }) {
+
+  // 侧边栏开关
+  function toggle() {
+    dispatch({
+      type: 'app/toggle',
+      payload: !collapsed,
+    })
+  }
 
   return (
     <LocaleProvider locale={zhCN}>
@@ -49,12 +52,18 @@ function App({ children, dispatch }) {
           breakpoint="md"
           collapsedWidth="0"
           width={240}
+          trigger={null}
+          collapsible
+          collapsed={collapsed}
         />
         <Layout>
           <BackTop className={styles.backup} />
           <Header className={styles.header}>
-            <div className={`${styles.icon} ${styles.trigger}`}>
-              <Icon type="menu-fold" />
+            <div
+              className={`${styles.icon} ${styles.trigger}`}
+              onClick={toggle}
+            >
+              <Icon type={ !collapsed ? "menu-fold" : "menu-unfold" } />
             </div>
             <div className={styles['header-main']}>
             </div>
@@ -91,4 +100,4 @@ function App({ children, dispatch }) {
 
 App.propTypes = {};
 
-export default connect()(App);
+export default connect(data => data.app)(App);
