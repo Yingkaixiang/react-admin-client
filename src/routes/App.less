@@ -1,28 +1,40 @@
 .layout{
-  width: 100%;
   min-height: 100vh;
+  width: 100%;
 }
 
 .header{
   display: flex;
-  align-items: center;
-  background-color: #fff;
-  box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.05);
   padding: 0;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.05);
+
+  align-items: center;
+
+  &-main{
+    flex: 1;
+  }
 }
 
-.trigger{
+.icon{
+  display: flex;
   width: 60px;
   height: 100%;
   font-size: 20px;
-  display: flex;
+  cursor: pointer;
+
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 
   &:hover{
     background-color: fade(#00929A, 15%);
     color: #00929A;
+  }
+}
+
+@media (max-width: 992px){
+  .trigger{
+    display: none;
   }
 }
 
@@ -32,11 +44,16 @@
 
 .main{
   padding: 24px;
-  background-color: #fff;
-  min-height: 360px;
+  min-height: 500px;
+  background-color: #FFFFFF;
   box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, 0.05);
 }
 
 .footer{
   text-align: center;
+}
+
+.backup{
+  right: 30px;
+  bottom: 30px;
 }
