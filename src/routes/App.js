@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'dva/router';
 import {
   Layout,
   Badge,
@@ -59,9 +60,11 @@ function App({ children, dispatch, collapsed }) {
             </div>
             <Menu mode="horizontal" style={{ borderBottom: 0 }}>
               <SubMenu title={<span><Icon type="user" />应开翔</span>}>
-                <Menu.Item key="option">
-                  <Icon type="setting" />设置
-                </Menu.Item>
+                  <Menu.Item key="option">
+                    <Link to="/user/option">
+                      <Icon type="setting" />设置
+                    </Link>
+                  </Menu.Item>
                 <Menu.Item key="password">
                   <Icon type="lock" />修改密码
                 </Menu.Item>
@@ -85,4 +88,4 @@ function App({ children, dispatch, collapsed }) {
 
 App.propTypes = {};
 
-export default connect(data => data.app)(App);
+export default withRouter(connect(data => data.app)(App));

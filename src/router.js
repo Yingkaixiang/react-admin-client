@@ -1,17 +1,43 @@
 import React from 'react';
-import { Router, Route, Switch } from 'dva/router';
+import { routerRedux, Route, Switch } from 'dva/router';
+import dynamic from 'dva/dynamic';
 import App from './routes/App';
-import Dashboard from './routes/Dashboard/';
 
-function RouterConfig({ history }) {
+const { ConnectedRouter } = routerRedux;
+
+/**
+ * 如果当前组件不需要model
+ * 请不要配置model属性会导致报错
+ */
+const routes = [{
+  path: '/',
+  component: () => import('./routes/Dashboard/'),
+}, {
+  path: '/user/option',
+  component: () => import('./routes/User/Option/'),
+}, {
+  path: '*',
+  component: () => import('./routes/PageNotFound/'),
+}]
+
+function RouterConfig({ history, app }) {
   return (
-    <App>
-      <Router history={history}>
+    <ConnectedRouter history={history}>
+      <App>
         <Switch>
-          <Route path="/" exact component={Dashboard} />
+          { routes.map(({ path, ...dynamics }, index) => {
+            return (
+              <Route
+                key={index}
+                exact
+                path={path}
+                component={dynamic({ app, ...dynamics })}
+              />
+            )
+          }) }
         </Switch>
-      </Router>
-    </App>
+      </App>
+    </ConnectedRouter>
   );
 }
 
