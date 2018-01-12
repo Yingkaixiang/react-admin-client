@@ -14,6 +14,7 @@ import styles from './App.less';
 
 import ImageViewer from '../components/ImageViewer/';
 import DetailPanel from '../components/DetailPanel/';
+import SiderMenu from '../components/SiderMenu/';
 
 const {
   Sider,
@@ -34,15 +35,6 @@ setInterval(() => {
 }, 10000);
 
 function App({ children, dispatch, collapsed }) {
-
-  // 侧边栏开关
-  function toggle() {
-    dispatch({
-      type: 'app/toggle',
-      payload: !collapsed,
-    })
-  }
-
   return (
     <LocaleProvider locale={zhCN}>
       <Layout className={styles.layout}>
@@ -52,19 +44,12 @@ function App({ children, dispatch, collapsed }) {
           breakpoint="md"
           collapsedWidth="0"
           width={240}
-          trigger={null}
-          collapsible
-          collapsed={collapsed}
-        />
+        >
+          <SiderMenu />
+        </Sider>
         <Layout>
           <BackTop className={styles.backup} />
           <Header className={styles.header}>
-            <div
-              className={`${styles.icon} ${styles.trigger}`}
-              onClick={toggle}
-            >
-              <Icon type={ !collapsed ? "menu-fold" : "menu-unfold" } />
-            </div>
             <div className={styles['header-main']}>
             </div>
             <div className={styles.icon}>

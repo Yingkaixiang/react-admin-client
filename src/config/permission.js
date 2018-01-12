@@ -1,1 +1,31 @@
-export default [];
+export default [{
+  id: 'user',
+  pid: '',
+  title: '用户管理',
+  icon: 'user',
+  route: '/user'
+}, {
+  id: 'user.account',
+  pid: 'user',
+  title: '账号管理',
+  icon: '',
+  route: '/user/account'
+}, {
+  id: 'user.role',
+  pid: 'user',
+  title: '角色管理',
+  icon: '',
+  route: '/user/role'
+}, {
+  id: 'statistics',
+  pid: '',
+  title: '数据统计',
+  icon: 'area-chart',
+  route: '/statistics'
+}, {
+  id: 'statistics.operationLog',
+  pid: 'statistics',
+  title: '操作日志',
+  icon: '',
+  route: '/operationLog'
+}];
