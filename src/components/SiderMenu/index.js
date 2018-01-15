@@ -38,10 +38,12 @@ const createMenu = (tree) => {
 
 function SiderMenu({ openKeys, dispatch }) {
   function onOpenChange(keys) {
-    dispatch({
-      type: 'app/handleMenu',
-      payload: difference(keys, openKeys),
-    });
+    if (keys instanceof Array) {
+      dispatch({
+        type: 'app/handleMenu',
+        payload: difference(keys, openKeys),
+      });
+    }
   }
   return (
     <div>

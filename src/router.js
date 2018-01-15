@@ -14,6 +14,7 @@ const routes = [{
   component: () => import('./routes/Dashboard/'),
 }, {
   path: '/user/option',
+  models: () => [import('./models/user/option')],
   component: () => import('./routes/User/Option/'),
 }, {
   path: '*',
