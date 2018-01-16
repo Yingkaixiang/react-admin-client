@@ -5,6 +5,7 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
 import { connect } from 'dva';
+import { routerRedux } from 'dva/router';
 import { difference } from 'lodash';
 import permission from '../../config/permission';
 import { arrayToTree } from '../../utils/';
@@ -47,7 +48,10 @@ function SiderMenu({ openKeys, dispatch }) {
   }
   return (
     <div>
-      <div className={styles.logo}></div>
+      <div
+        className={styles.logo}
+        onClick={() => {dispatch(routerRedux.push('/'))}}
+      ></div>
       <Menu
         mode="inline"
         theme="dark"

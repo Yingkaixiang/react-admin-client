@@ -1,0 +1,56 @@
+.header{
+  display: flex;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.05);
+
+  align-items: center;
+
+  &-main{
+    flex: 1;
+  }
+}
+
+.icon{
+  display: flex;
+  width: 60px;
+  height: 100%;
+  font-size: 20px;
+  cursor: pointer;
+
+  justify-content: center;
+  align-items: center;
+
+  &:hover{
+    background-color: fade(#00929A, 15%);
+    color: #00929A;
+  }
+}
+
+.user{
+  padding: 0 16px;
+  cursor: pointer;
+
+  &-item{
+    padding: 8px 0;
+    cursor: pointer;
+
+    span{
+      margin-left: 8px;
+    }
+
+    &:hover{
+      color: #1890FF;
+    }
+  }
+
+  &:hover{
+    background-color: fade(#00929A, 15%);
+  }
+
+  span{
+    margin-left: 10px;
+  }
+}

@@ -1,11 +1,8 @@
 import React from 'react';
-import { Link, withRouter } from 'dva/router';
+import { withRouter } from 'dva/router';
 import {
   Layout,
-  Badge,
-  Icon,
   BackTop,
-  Popover,
   LocaleProvider,
   notification,
 } from 'antd';
@@ -16,6 +13,7 @@ import styles from './App.less';
 import ImageViewer from '../components/ImageViewer/';
 import DetailPanel from '../components/DetailPanel/';
 import SiderMenu from '../components/SiderMenu/';
+import HeaderNav from '../components/HeaderNav/';
 
 const {
   Sider,
@@ -34,24 +32,6 @@ setInterval(() => {
 }, 10000);
 
 function App({ children, dispatch, collapsed }) {
-  const content = (
-    <div>
-      <div className={styles['user-item']}>
-        <Link to="/user/setting">
-          <Icon type="setting" />
-          <span>用户设置</span>
-        </Link>
-      </div>
-      <div className={styles['user-item']}>
-        <Icon type="lock" />
-        <span>密码修改</span>
-      </div>
-      <div className={styles['user-item']}>
-        <Icon type="logout" />
-        <span>注销</span>
-      </div>
-    </div>
-  );
   return (
     <LocaleProvider locale={zhCN}>
       <Layout className={styles.layout}>
@@ -66,24 +46,8 @@ function App({ children, dispatch, collapsed }) {
         </Sider>
         <Layout>
           <BackTop className={styles.backup} />
-          <Header className={styles.header}>
-            <div className={styles['header-main']}>
-            </div>
-            <div className={styles.icon}>
-              <Badge dot>
-                <Icon type="mail" />
-              </Badge>
-            </div>
-            <Popover
-              placement="bottomRight"
-              content={content}
-              trigger="hover"
-            >
-              <div className={styles.user}>
-                <Icon type="user" />
-                <span>应开翔</span>
-              </div>
-            </Popover>
+          <Header style={{ padding: 0 }}>
+            <HeaderNav />
           </Header>
           <Content className={styles.content}>
             <div className={styles.main}>
