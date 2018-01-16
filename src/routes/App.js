@@ -5,7 +5,7 @@ import {
   Badge,
   Icon,
   BackTop,
-  Menu,
+  Popover,
   LocaleProvider,
   notification,
 } from 'antd';
@@ -24,8 +24,6 @@ const {
   Footer,
 } = Layout;
 
-const SubMenu = Menu.SubMenu;
-
 // 模拟消息
 setInterval(() => {
   notification.open({
@@ -36,6 +34,24 @@ setInterval(() => {
 }, 10000);
 
 function App({ children, dispatch, collapsed }) {
+  const content = (
+    <div>
+      <div className={styles['user-item']}>
+        <Link to="/user/setting">
+          <Icon type="setting" />
+          <span>用户设置</span>
+        </Link>
+      </div>
+      <div className={styles['user-item']}>
+        <Icon type="lock" />
+        <span>密码修改</span>
+      </div>
+      <div className={styles['user-item']}>
+        <Icon type="logout" />
+        <span>注销</span>
+      </div>
+    </div>
+  );
   return (
     <LocaleProvider locale={zhCN}>
       <Layout className={styles.layout}>
@@ -58,21 +74,16 @@ function App({ children, dispatch, collapsed }) {
                 <Icon type="mail" />
               </Badge>
             </div>
-            <Menu mode="horizontal" style={{ borderBottom: 0 }}>
-              <SubMenu title={<span><Icon type="user" />应开翔</span>}>
-                  <Menu.Item key="option">
-                    <Link to="/user/option">
-                      <Icon type="setting" />设置
-                    </Link>
-                  </Menu.Item>
-                <Menu.Item key="password">
-                  <Icon type="lock" />修改密码
-                </Menu.Item>
-                <Menu.Item key="logout">
-                  <Icon type="logout" />注销
-                </Menu.Item>
-              </SubMenu>
-            </Menu>
+            <Popover
+              placement="bottomRight"
+              content={content}
+              trigger="hover"
+            >
+              <div className={styles.user}>
+                <Icon type="user" />
+                <span>应开翔</span>
+              </div>
+            </Popover>
           </Header>
           <Content className={styles.content}>
             <div className={styles.main}>

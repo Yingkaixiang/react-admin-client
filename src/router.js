@@ -13,9 +13,9 @@ const routes = [{
   path: '/',
   component: () => import('./routes/Dashboard/'),
 }, {
-  path: '/user/option',
-  models: () => [import('./models/user/option')],
-  component: () => import('./routes/User/Option/'),
+  path: '/user/setting',
+  models: () => [import('./models/user/setting')],
+  component: () => import('./routes/User/Setting/'),
 }, {
   path: '*',
   component: () => import('./routes/PageNotFound/'),
