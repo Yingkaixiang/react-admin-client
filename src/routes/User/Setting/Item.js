@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { DragSource, DropTarget } from 'react-dnd';
+import { Switch } from 'antd';
 import styles from './index.less';
 
 const cardSource = {
@@ -56,7 +57,8 @@ const type = 'Item';
 class Item extends Component {
 	render() {
 		const {
-			text,
+      title,
+      desc,
 			isDragging,
 			connectDragSource,
 			connectDropTarget,
@@ -67,7 +69,15 @@ class Item extends Component {
         <div
           className={styles.item}
           style={{ opacity: isDragging ? 0 : 1 }}
-        >{text}</div>),
+        >
+          <div className={styles['item-icon']}></div>
+          <div className={styles['item-info']}>
+            <p>{title}</p>
+            <span>{desc}</span>
+          </div>
+          <Switch />
+        </div>
+      ),
 		);
 	}
 }
