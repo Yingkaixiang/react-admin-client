@@ -1,6 +1,6 @@
-const mockjs = require('mockjs');
+import mockjs from 'mockjs';
 
-module.exports = {
+export default {
   'GET /api/user/setting': (req, res) => {
     const data = mockjs.mock({
       'enableList|5': [

@@ -23,9 +23,9 @@ export default [{
   icon: 'area-chart',
   route: '/statistics'
 }, {
-  id: 'statistics.operationLog',
-  pid: 'statistics',
+  id: 'operationLog',
+  pid: '',
   title: '操作日志',
-  icon: '',
-  route: '/operationLog'
+  icon: 'book',
+  route: '/operationLog',
 }];

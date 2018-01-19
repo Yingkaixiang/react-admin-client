@@ -5,7 +5,7 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
 import { connect } from 'dva';
-import { routerRedux } from 'dva/router';
+import { routerRedux, Link } from 'dva/router';
 import { difference } from 'lodash';
 import permission from '../../config/permission';
 import { arrayToTree } from '../../utils/';
@@ -30,7 +30,9 @@ const createMenu = (tree) => {
         <Menu.Item
           key={item.id}
         >
-          <Icon type={item.icon} />{ item.title }
+          <Link to={item.route}>
+            <Icon type={item.icon} />{ item.title }
+          </Link>
         </Menu.Item>
       );
     }

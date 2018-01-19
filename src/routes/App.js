@@ -29,7 +29,7 @@ setInterval(() => {
     description: '您有一条新的消息，请及时查看',
     placement: 'bottomRight',
   })
-}, 10000);
+}, 20000);
 
 function App({ children, dispatch, collapsed }) {
   return (

@@ -4,14 +4,9 @@ import { DragDropContext } from 'react-dnd';
 import { Card } from 'antd'; 
 import HTML5Backend from 'react-dnd-html5-backend';
 import Item from './Item';
-import styles from './index.less';
 
 @DragDropContext(HTML5Backend)
 class Option extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	moveItem(type, dragIndex, hoverIndex) {
     this.props.dispatch({
       type: 'userOption/exchangePos',
