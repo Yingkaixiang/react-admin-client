@@ -28,6 +28,7 @@ function OperationLog({ dataSource, dispatch }) {
     render: (avatar, record) => {
       return (
         <Avatar
+          size="large"
           src={avatar}
           onClick={() => {showAvatar(avatar)}}
         >{record.operator}</Avatar>);
