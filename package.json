@@ -9,6 +9,7 @@
   "dependencies": {
     "antd": "^3.1.1",
     "babel-plugin-import": "^1.6.3",
+    "bizcharts": "^3.1.2",
     "dva": "^2.1.0",
     "dva-loading": "^1.0.4",
     "es6-requireindex": "^0.3.10",
