@@ -1,4 +1,25 @@
 export default [{
+  id: 'components',
+  pid: '',
+  title: '组件列表',
+  icon: 'appstore-o',
+  route: ''
+}, {
+  id: 'components.image',
+  pid: 'components',
+  title: 'Image',
+  route: ''
+}, {
+  id: 'components.imageViewer',
+  pid: 'components',
+  title: 'ImageViewer',
+  route: ''
+}, {
+  id: 'components.detailPanel',
+  pid: 'components',
+  title: 'DetailPanel',
+  route: ''
+}, {
   id: 'user',
   pid: '',
   title: '用户管理',
