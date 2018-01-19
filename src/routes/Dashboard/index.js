@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Button } from 'antd';
-import { Chart, Geom, Axis, Tooltip, Legend, Coord } from 'bizcharts';
+import { Chart, Geom, Axis, Tooltip, Legend } from 'bizcharts';
+import Image from '../../components/Image/';
 
 function Dashboard({ dispatch }) {
     // 数据源
@@ -19,16 +20,11 @@ function Dashboard({ dispatch }) {
     genre: { alias: '游戏种类' }
   };
 
-  function showImageViewer() {
+  function showImageViewer(url) {
     dispatch({
       type: 'imageViewer/open',
       payload: {
-        imageUrls: [
-          'http://qncdn.rela.me/src/img/game/bg3.jpg',
-          'http://qncdn.rela.me/src/img/game/czsg-1.jpg',
-          'http://qncdn.rela.me/src/img/game/czsg-3.jpg',
-          'http://qncdn.rela.me/src/img/game/czsg-4.jpg'
-        ]
+        imageUrls: [url]
       }
     })
   }
@@ -38,8 +34,19 @@ function Dashboard({ dispatch }) {
       type: 'detailPanel/open',
     })
   }
+
   return (
     <div>
+      <Image
+        src="http://qncdn.rela.me/src/img/live_apply/banner_cn.png?imageView2/2/"
+        type="image"
+        onClick={showImageViewer}
+      />
+      <Image src="123" type="image" />
+      <Image src="123" type="image" />
+      <Image src="123" type="image" />
+      <Image src="123" type="image" />
+      <Image src="123" type="image" />
       <Button onClick={showImageViewer} style={{ marginRight: 10 }}>图片预览</Button>
       <Button onClick={showDetailPanel}>详情面板</Button>
       <div style={{ marginTop: 40 }}>
