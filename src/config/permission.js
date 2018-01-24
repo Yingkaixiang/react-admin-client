@@ -8,7 +8,7 @@ export default [{
   id: 'components.image',
   pid: 'components',
   title: 'Image',
-  route: ''
+  route: '/component/image'
 }, {
   id: 'components.imageViewer',
   pid: 'components',
