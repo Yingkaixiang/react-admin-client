@@ -42,11 +42,11 @@ function Dashboard({ dispatch }) {
         type="image"
         onClick={showImageViewer}
       />
-      <Image src="123" type="image" />
-      <Image src="123" type="image" />
-      <Image src="123" type="image" />
-      <Image src="123" type="image" />
-      <Image src="123" type="image" />
+      <Image src="123" />
+      <Image src="123" />
+      <Image src="123" />
+      <Image src="123" />
+      <Image src="123" />
       <Button onClick={showImageViewer} style={{ marginRight: 10 }}>图片预览</Button>
       <Button onClick={showDetailPanel}>详情面板</Button>
       <div style={{ marginTop: 40 }}>

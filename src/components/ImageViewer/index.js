@@ -29,6 +29,11 @@ function ImageViewer({ imageUrls, visible, current, dispatch }) {
     dispatch({ type: 'imageViewer/hide' });
   }
 
+  // 获取原图
+  function getOrigin(url) {
+    return url.split('?')[0]
+  }
+
   return (
     <div className={styles.main} style={{ display: visible ? 'flex' : 'none' }}>
       <Icon
@@ -47,7 +52,7 @@ function ImageViewer({ imageUrls, visible, current, dispatch }) {
       <div className={styles.container}>
         { imageUrls.map((item, index) => (
           <img
-            src={item}
+            src={getOrigin(item)}
             alt={index}
             key={index}
             style={{ display: current === index ? 'block' : 'none' }}

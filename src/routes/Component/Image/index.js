@@ -1,12 +1,45 @@
 import React from 'react';
-import { Link, Card } from 'dva/router';
-import CodeMirror from 'react-codemirror';
+import { connect } from 'dva';
+import { Link } from 'dva/router';
 import styles from '../index.less';
+import CodeBox from '../CodeBox/';
+import Image from '../../../components/Image/';
 
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/lib/codemirror.css';
 
-function Image() {
+function ImageDoc({ dispatch }) {
+  // 预览图片
+  function preview(url) {
+    dispatch({
+      type: 'imageViewer/open',
+      payload: { imageUrls: [url] },
+    });
+  }
+
+  const demo = (
+    <Image
+      src="http://7xpdcb.com1.z0.glb.clouddn.com/banner/160e05b1c1830eba?imageView2/0/w/400/q/70"
+      className={styles.img1}
+      onClick={preview}
+    />
+  );
+
+  const demo1 = (
+    <Image
+      src=""
+      className={styles['img-error']}
+    />
+  );
+
+  const meta = (
+    <div>可以使用自定义样式，点击后使用 <Link to="/component/imageviewer"><a>ImageViewer</a></Link> 进行预览。</div>
+  );
+
+  const meta1 = (
+    <div>图片加载失败时会用默认图片进行替换。</div>
+  );
+
   return (
     <div>
       <div className={styles.container}>
@@ -23,13 +56,11 @@ function Image() {
       </div>
       <div className={styles.container}>
         <h2>代码演示</h2>
-        <CodeMirror
-          value="import Image from '../../components/Image/';"
-          options={{ mode: 'javascript' }}
-        />
+        <CodeBox demo={demo} title="加载一张图片" meta={meta} />
+        <CodeBox demo={demo1} title="图片加载失败" meta={meta1} />
       </div>
     </div>
   );
 }
 
-export default Image;
+export default connect()(ImageDoc);

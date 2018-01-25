@@ -16,6 +16,9 @@ const routes = [{
   path: '/component/image',
   component: () => import('./routes/Component/Image/'),
 }, {
+  path: '/component/imageviewer',
+  component: () => import('./routes/Component/ImageViewer/'),
+}, {
   path: '/user/setting',
   models: () => [import('./models/user/setting')],
   component: () => import('./routes/User/Setting/'),
