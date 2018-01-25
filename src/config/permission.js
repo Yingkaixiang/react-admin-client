@@ -13,7 +13,7 @@ export default [{
   id: 'components.imageViewer',
   pid: 'components',
   title: 'ImageViewer',
-  route: '/component/imageviewer'
+  route: '/component/imageViewer'
 }, {
   id: 'components.detailPanel',
   pid: 'components',

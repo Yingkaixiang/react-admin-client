@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'dva';
 import { Button } from 'antd';
 import { Chart, Geom, Axis, Tooltip, Legend } from 'bizcharts';
-import Image from '../../components/Image/';
 
 function Dashboard({ dispatch }) {
     // 数据源
@@ -20,35 +19,8 @@ function Dashboard({ dispatch }) {
     genre: { alias: '游戏种类' }
   };
 
-  function showImageViewer(url) {
-    dispatch({
-      type: 'imageViewer/open',
-      payload: {
-        imageUrls: [url]
-      }
-    })
-  }
-
-  function showDetailPanel() {
-    dispatch({
-      type: 'detailPanel/open',
-    })
-  }
-
   return (
     <div>
-      <Image
-        src="http://qncdn.rela.me/src/img/live_apply/banner_cn.png?imageView2/2/"
-        type="image"
-        onClick={showImageViewer}
-      />
-      <Image src="123" />
-      <Image src="123" />
-      <Image src="123" />
-      <Image src="123" />
-      <Image src="123" />
-      <Button onClick={showImageViewer} style={{ marginRight: 10 }}>图片预览</Button>
-      <Button onClick={showDetailPanel}>详情面板</Button>
       <div style={{ marginTop: 40 }}>
         <Chart width={600} height={400} data={data} scale={cols}>
           <Axis name="genre" />

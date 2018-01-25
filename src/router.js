@@ -16,7 +16,7 @@ const routes = [{
   path: '/component/image',
   component: () => import('./routes/Component/Image/'),
 }, {
-  path: '/component/imageviewer',
+  path: '/component/imageViewer',
   component: () => import('./routes/Component/ImageViewer/'),
 }, {
   path: '/user/setting',
