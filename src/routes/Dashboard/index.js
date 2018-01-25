@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Button } from 'antd';
 import { Chart, Geom, Axis, Tooltip, Legend } from 'bizcharts';
 
 function Dashboard({ dispatch }) {

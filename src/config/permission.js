@@ -18,7 +18,7 @@ export default [{
   id: 'components.detailPanel',
   pid: 'components',
   title: 'DetailPanel',
-  route: ''
+  route: '/component/detailPanel'
 }, {
   id: 'user',
   pid: '',
