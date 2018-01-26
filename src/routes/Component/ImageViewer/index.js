@@ -1,7 +1,43 @@
 import React from 'react';
+import { connect } from 'dva';
 import styles from '../index.less';
+import CodeBox from '../CodeBox/';
 
-function ImageViewerDoc() {
+function ImageViewerDoc({ dispatch }) {
+  const imgList = [
+    'https://coding.net/static/project_icon/scenery-14.png',
+    'https://coding.net/static/project_icon/scenery-13.png',
+    'https://coding.net/static/project_icon/scenery-12.png',
+    'https://coding.net/static/project_icon/scenery-11.png',
+    'https://coding.net/static/project_icon/scenery-10.png',
+  ];
+
+  function showOrigin(index) {
+    dispatch({
+      type: 'imageViewer/open',
+      payload: {
+        imageUrls: imgList,
+        initialIndex: index,
+      },
+    });
+  }
+
+  const demo = (
+    <div className={styles['img-list']}>
+      { imgList.map((item, index) => (
+          <img
+            src={item}
+            key={index}
+            onClick={() => {showOrigin(index);}} />)
+          )
+        }
+    </div>
+  );
+
+  const meta = (
+    <div>显示指定图片，可以直接在参数中配置。</div>
+  );
+
   return (
     <div>
       <div className={styles.container}>
@@ -14,13 +50,21 @@ function ImageViewerDoc() {
           <li>
             <p>图片加载失败时会用统一默认图片进行替换。</p>
           </li>
+          <li>
+            <p>可以指定默认显示图片。</p>
+          </li>
         </ul>
       </div>
       <div className={styles.container}>
         <h2>代码演示</h2>
+        <CodeBox
+          demo={demo}
+          title="显示指定图片"
+          meta={meta}
+        />
       </div>
     </div>
   );
 }
 
-export default ImageViewerDoc;
+export default connect()(ImageViewerDoc);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
+import CodeMirror from 'react-codemirror';
 import styles from '../index.less';
 import CodeBox from '../CodeBox/';
 import Image from '../../../components/Image/';
@@ -40,6 +41,10 @@ function ImageDoc({ dispatch }) {
     <div>图片加载失败时会用默认图片进行替换。</div>
   );
 
+  const code = (
+    <CodeMirror value="import React from 'react';" />
+  )
+
   return (
     <div>
       <div className={styles.container}>
@@ -56,7 +61,12 @@ function ImageDoc({ dispatch }) {
       </div>
       <div className={styles.container}>
         <h2>代码演示</h2>
-        <CodeBox demo={demo} title="加载一张图片" meta={meta} />
+        <CodeBox
+          demo={demo}
+          title="加载一张图片"
+          meta={meta}
+          code={code}
+        />
         <CodeBox demo={demo1} title="图片加载失败" meta={meta1} />
       </div>
     </div>

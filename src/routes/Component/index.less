@@ -38,6 +38,23 @@ ul > li{
   &-meta{
     position: relative;
     padding: 18px 32px;
+
+    &-btn{
+      position: absolute;
+      right: 16px;
+      bottom: 23px;
+      width: 16px;
+      height: 16px;
+      text-align: center;
+      line-height: 16px;
+      cursor: pointer;
+    }
+  }
+
+  &-code{
+    padding: 18px 32px;
+    width: 100%;
+    border-top: 1px solid #EBEDF0;
   }
 
   &-title{
@@ -70,5 +87,17 @@ ul > li{
 
   .img-error{
     width: 100%;
+  }
+}
+
+.img-list{
+  display: flex;
+  width: 100%;
+
+  img{
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
   }
 }
