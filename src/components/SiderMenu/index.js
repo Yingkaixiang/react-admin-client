@@ -9,14 +9,13 @@ import React from 'react';
 import { Menu, Icon } from 'antd';
 import { connect } from 'dva';
 import { routerRedux, Link } from 'dva/router';
-import { difference } from 'lodash';
 import permission from '../../config/permission';
 import { arrayToTree } from '../../utils/';
 import styles from './index.less';
 
 const { SubMenu } = Menu;
 
-const tree = arrayToTree(permission);
+const tree = arrayToTree(permission.filter(item => (item.type === 0)));
 const createMenu = (tree) => {
   return tree.map(item => {
     if (item.children) {
@@ -45,14 +44,17 @@ const createMenu = (tree) => {
 function SiderMenu({ openKeys, dispatch, selectedKeys }) {
   // 展开菜单栏
   function onOpenChange(keys) {
+    console.dir(keys);
     let openKeys = [];
     let father = keys[0];
     for (let i = 0; i < keys.length; i += 1) {
       const data = keys[i];
-      if (data.indexOf(father) !== -1) {
-        openKeys.push(data);
-      } else {
-        openKeys = [data];
+      if (data) {
+        if (data.indexOf(father) !== -1) {
+          openKeys.push(data);
+        } else {
+          openKeys = [data];
+        }
       }
     }
     dispatch({

@@ -21,19 +21,27 @@ export function arrayToTree(arr) {
   return result;
 }
 
-// 获取权限id
-export function getPermissionId(route) {
+/**
+ * 获取指定权限相关信息
+ * 
+ * @export
+ * @param {string} key 查询类型 
+ * @param {string} value 查询值 
+ * @returns 
+ */
+export function getPermissionInfo(key, value) {
   for (let i = 0; i < permission.length; i += 1) {
     const data = permission[i];
-    if (data.route === route) {
-      return data.id
+    if (data[key] === value) {
+      return data
     }
   }
 }
 
 // 通过id获取当前权限的层级
 export function getPermissionParent(id) {
-  if (id) {
+  const permission = getPermissionInfo('id', id);
+  if (id && permission.type === 0) {
     const current = id.split('.');
     const tmp = [];
     const arr = [];

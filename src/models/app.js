@@ -1,5 +1,5 @@
 import {
-  getPermissionId,
+  getPermissionInfo,
   getPermissionParent,
 } from '../utils/';
 
@@ -14,12 +14,16 @@ export default {
     setup({ dispatch, history }) {
       history.listen((location) => {
         // 根据路由变化打开对应的侧边栏模块
-        const selectedKeys = getPermissionId(location.pathname);
+        const permission = getPermissionInfo('route', location.pathname);
+        const selectedKeys = permission.id;
         const openKeys = getPermissionParent(selectedKeys);
-        dispatch({
-          type: 'onMenuSelect',
-          payload: [selectedKeys],
-        });
+        // 当前路由是需要在侧边栏展示的
+        if (permission.type === 0) {
+          dispatch({
+            type: 'onMenuSelect',
+            payload: [selectedKeys],
+          });
+        }
         dispatch({
           type: 'onMenuOpenChange',
           payload: openKeys,
