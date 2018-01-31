@@ -15,6 +15,8 @@ export default {
       history.listen((location) => {
         // 根据路由变化打开对应的侧边栏模块
         const permission = getPermissionInfo('route', location.pathname);
+        // 根路由
+        if (!permission) return;
         const selectedKeys = permission.id;
         const openKeys = getPermissionParent(selectedKeys);
         // 当前路由是需要在侧边栏展示的

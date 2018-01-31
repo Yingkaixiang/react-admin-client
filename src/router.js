@@ -22,6 +22,13 @@ const routes = [{
   path: '/component/detailPanel',
   component: () => import('./routes/Component/DetailPanel/'),
 }, {
+  path: '/advertisement/banner',
+  component: () => import('./routes/Advertisement/Banner'),
+}, {
+  path: '/advertisement/startup',
+  models: () => [import('./models/advertisement/startup')],
+  component: () => import('./routes/Advertisement/Startup'),
+}, {
   path: '/user/setting',
   models: () => [import('./models/user/setting')],
   component: () => import('./routes/User/Setting/'),
