@@ -1,10 +1,11 @@
 import React from 'react';
-import { withRouter } from 'dva/router';
+import { withRouter, Link } from 'dva/router';
 import {
   Layout,
   BackTop,
   LocaleProvider,
   notification,
+  Breadcrumb,
 } from 'antd';
 import { connect } from 'dva';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
@@ -31,7 +32,7 @@ setInterval(() => {
   })
 }, 20000);
 
-function App({ children, dispatch, collapsed }) {
+function App({ children, dispatch, collapsed, breadcrumb }) {
   return (
     <LocaleProvider locale={zhCN}>
       <Layout className={styles.layout}>
@@ -50,6 +51,18 @@ function App({ children, dispatch, collapsed }) {
             <HeaderNav />
           </Header>
           <Content className={styles.content}>
+            <Breadcrumb style={{ marginBottom: 8 }}>
+              <Breadcrumb.Item>
+                <Link to="/">首页</Link>
+              </Breadcrumb.Item>
+              {
+                breadcrumb.map(item => (
+                  <Breadcrumb.Item>
+                    <Link to={item.route}>{item.title}</Link>
+                  </Breadcrumb.Item>
+                ))
+              }
+            </Breadcrumb>
             <div className={styles.main}>
               {children}
             </div>

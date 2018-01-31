@@ -9,6 +9,7 @@ export default {
     collapsed: false,
     openKeys: [],
     selectedKeys: [],
+    breadcrumb: [],
   },
   subscriptions: {
     setup({ dispatch, history }) {
@@ -30,6 +31,11 @@ export default {
           type: 'onMenuOpenChange',
           payload: openKeys,
         });
+        // 面包屑
+        dispatch({
+          type: 'setBreadcrumb',
+          payload: openKeys.map(item => getPermissionInfo('id', item)),
+        });
       });
     },
   },
@@ -43,6 +49,9 @@ export default {
     },
     onMenuSelect(state, { payload }) {
       return { ...state, selectedKeys: payload };
+    },
+    setBreadcrumb(state, { payload }) {
+      return { ...state, breadcrumb: payload };
     }
   },
 }
