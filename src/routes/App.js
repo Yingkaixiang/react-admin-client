@@ -34,7 +34,11 @@ setInterval(() => {
           <a href="mailto:rubykaikai@gmail.com">rubykaikai@gmail.com</a>。
         </p>
         <p className={styles.notification}>GitHub：
-          <a href="https://github.com/Yingkaixiang" target="_blank">https://github.com/Yingkaixiang</a>。
+          <a
+            href="https://github.com/Yingkaixiang"
+            target="_blank"
+            rel="noopener noreferrer"
+          >https://github.com/Yingkaixiang</a>。
         </p>
       </div>
     ),

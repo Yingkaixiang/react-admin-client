@@ -1,6 +1,5 @@
 import React from 'react';
 import { Carousel } from 'antd';
-import styles from './index.less';
 
 function Banner() {
   return (
