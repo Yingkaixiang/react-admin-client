@@ -29,6 +29,9 @@ const routes = [{
   models: () => [import('./models/advertisement/startup')],
   component: () => import('./routes/Advertisement/Startup'),
 }, {
+  path: '/user/account/register',
+  component: () => import('./routes/User/Account/Register/'),
+}, {
   path: '/user/setting',
   models: () => [import('./models/user/setting')],
   component: () => import('./routes/User/Setting/'),

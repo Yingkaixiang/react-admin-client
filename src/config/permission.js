@@ -59,6 +59,13 @@ export default [{
   route: '/advertisement/startup',
   type: 0,
 }, {
+  id: 'live',
+  pid: '',
+  title: '直播监控',
+  icon: 'video-camera',
+  route: '',
+  type: 0,
+}, {
   id: 'user',
   pid: '',
   title: '用户管理',
@@ -71,6 +78,20 @@ export default [{
   title: '账号管理',
   icon: '',
   route: '/user/account',
+  type: 0,
+}, {
+  id: 'user.account.register',
+  pid: 'user.account',
+  title: '注册账号',
+  icon: '',
+  route: '/user/account/register',
+  type: 0,
+}, {
+  id: 'user.account.list',
+  pid: 'user.account',
+  title: '账号列表',
+  icon: '',
+  route: '/user/account/list',
   type: 0,
 }, {
   id: 'user.role',
@@ -86,6 +107,27 @@ export default [{
   icon: '',
   route: '/user/setting',
   type: 1,
+}, {
+  id: 'version',
+  pid: '',
+  title: '版本发布',
+  icon: 'shake',
+  route: '',
+  type: 0,
+}, {
+  id: 'version.ios',
+  pid: 'version',
+  title: 'IOS',
+  icon: 'apple',
+  route: '',
+  type: 0,
+}, {
+  id: 'version.android',
+  pid: 'version',
+  title: 'Android',
+  icon: 'android',
+  route: '',
+  type: 0,
 }, {
   id: 'statistics',
   pid: '',

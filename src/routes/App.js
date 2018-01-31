@@ -27,10 +27,20 @@ const {
 setInterval(() => {
   notification.open({
     message: '后台消息通知',
-    description: '您有一条新的消息，请及时查看',
+    description: (
+      <div>
+        <p className={styles.notification}>您如果有任何的意见都可以通过以下方式联系我。</p>
+        <p className={styles.notification}>邮箱：
+          <a href="mailto:rubykaikai@gmail.com">rubykaikai@gmail.com</a>。
+        </p>
+        <p className={styles.notification}>GitHub：
+          <a href="https://github.com/Yingkaixiang" target="_blank">https://github.com/Yingkaixiang</a>。
+        </p>
+      </div>
+    ),
     placement: 'bottomRight',
   })
-}, 20000);
+}, 30000);
 
 function App({ children, dispatch, collapsed, breadcrumb }) {
   return (
@@ -56,8 +66,8 @@ function App({ children, dispatch, collapsed, breadcrumb }) {
                 <Link to="/">首页</Link>
               </Breadcrumb.Item>
               {
-                breadcrumb.map(item => (
-                  <Breadcrumb.Item>
+                breadcrumb.map((item, index) => (
+                  <Breadcrumb.Item key={index}>
                     <Link to={item.route}>{item.title}</Link>
                   </Breadcrumb.Item>
                 ))
