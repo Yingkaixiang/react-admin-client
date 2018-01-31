@@ -45,7 +45,7 @@ class CodeBox extends Component {
 
 CodeBox.propTypes = {
   demo: propTypes.element,
-  title: propTypes.element,
+  title: propTypes.string,
   meta: propTypes.element,
 }
 

@@ -26,6 +26,7 @@ function ImageViewerDoc({ dispatch }) {
     <div className={styles['img-list']}>
       { imgList.map((item, index) => (
           <img
+            alt="图片"
             src={item}
             key={index}
             onClick={() => {showOrigin(index);}} />)

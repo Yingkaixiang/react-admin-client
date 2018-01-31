@@ -1,5 +1,8 @@
 /**
  * 菜单栏
+ * 
+ * 1. 根据路由变化自动展开对应菜单
+ * 2. 同时只能展开一个菜单选项
  */
 
 import React from 'react';
@@ -13,7 +16,7 @@ import styles from './index.less';
 
 const { SubMenu } = Menu;
 
-const tree = arrayToTree(permission)
+const tree = arrayToTree(permission);
 const createMenu = (tree) => {
   return tree.map(item => {
     if (item.children) {
@@ -37,17 +40,35 @@ const createMenu = (tree) => {
       );
     }
   });
-}
+};
 
-function SiderMenu({ openKeys, dispatch }) {
+function SiderMenu({ openKeys, dispatch, selectedKeys }) {
+  // 展开菜单栏
   function onOpenChange(keys) {
-    if (keys instanceof Array) {
-      dispatch({
-        type: 'app/handleMenu',
-        payload: difference(keys, openKeys),
-      });
+    let openKeys = [];
+    let father = keys[0];
+    for (let i = 0; i < keys.length; i += 1) {
+      const data = keys[i];
+      if (data.indexOf(father) !== -1) {
+        openKeys.push(data);
+      } else {
+        openKeys = [data];
+      }
     }
+    dispatch({
+      type: 'app/onMenuOpenChange',
+      payload: openKeys,
+    });
   }
+
+  // 选中菜单栏
+  function onSelect(data) {
+    dispatch({
+      type: 'app/onMenuSelect',
+      payload: data.selectedKeys,
+    });
+  }
+
   return (
     <div>
       <div
@@ -59,7 +80,8 @@ function SiderMenu({ openKeys, dispatch }) {
         theme="dark"
         onOpenChange={onOpenChange}
         openKeys={openKeys}
-        onSelect={onOpenChange}
+        onSelect={onSelect}
+        selectedKeys={selectedKeys}
       >
         {createMenu(tree)}
       </Menu>

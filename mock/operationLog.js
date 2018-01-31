@@ -4,6 +4,7 @@ export default {
   'GET /api/operationLog/list': (req, res) => {
     const { list } = mockjs.mock({
       'list|100': [{
+        'id|+1': 1,
         'avatar': '',
         'operator': '@cname',
         'createAt': '@datetime',

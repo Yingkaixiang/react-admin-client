@@ -55,6 +55,7 @@ function OperationLog({ dataSource, dispatch }) {
 
   return (
     <Table
+      rowKey={record => record.id}
       bordered
       columns={columns}
       dataSource={dataSource}

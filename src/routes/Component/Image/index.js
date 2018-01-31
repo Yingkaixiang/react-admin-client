@@ -34,7 +34,7 @@ function ImageDoc({ dispatch }) {
   );
 
   const meta = (
-    <div>可以使用自定义样式，点击后使用 <Link to="/component/imageviewer"><a>ImageViewer</a></Link> 进行预览。</div>
+    <div>可以使用自定义样式，点击后使用 <Link to="/component/imageViewer">ImageViewer</Link> 进行预览。</div>
   );
 
   const meta1 = (
