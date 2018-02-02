@@ -32,9 +32,15 @@ const routes = [{
   path: '/user/account/register',
   component: () => import('./routes/User/Account/Register/'),
 }, {
+  path: '/user/role/create',
+  component: () => import('./routes/User/Role/Create/'),
+}, {
   path: '/user/setting',
   models: () => [import('./models/user/setting')],
   component: () => import('./routes/User/Setting/'),
+}, {
+  path: '/release/android',
+  component: () => import('./routes/Release/Android/'),
 }, {
   path: '/operationLog',
   models: () => [import('./models/operationLog/')],

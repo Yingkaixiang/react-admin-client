@@ -101,6 +101,20 @@ export default [{
   route: '/user/role',
   type: 0,
 }, {
+  id: 'user.role.create',
+  pid: 'user.role',
+  title: '创建角色',
+  icon: '',
+  route: '/user/role/create',
+  type: 0,
+}, {
+  id: 'user.role.list',
+  pid: 'user.role',
+  title: '角色列表',
+  icon: '',
+  route: '/user/role/list',
+  type: 0,
+}, {
   id: 'user.setting',
   pid: 'user',
   title: '用户设置',
@@ -126,7 +140,7 @@ export default [{
   pid: 'version',
   title: 'Android',
   icon: 'android',
-  route: '',
+  route: '/release/android',
   type: 0,
 }, {
   id: 'statistics',
