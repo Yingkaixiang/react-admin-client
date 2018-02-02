@@ -22,6 +22,9 @@ const routes = [{
   path: '/component/detailPanel',
   component: () => import('./routes/Component/DetailPanel/'),
 }, {
+  path: '/component/player',
+  component: () => import('./routes/Component/Player/'),
+}, {
   path: '/advertisement/banner',
   component: () => import('./routes/Advertisement/Banner'),
 }, {

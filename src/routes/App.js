@@ -13,6 +13,7 @@ import styles from './App.less';
 
 import ImageViewer from '../components/ImageViewer/';
 import DetailPanel from '../components/DetailPanel/';
+import Player from '../components/Player/';
 import SiderMenu from '../components/SiderMenu/';
 import HeaderNav from '../components/HeaderNav/';
 
@@ -52,6 +53,7 @@ function App({ children, dispatch, collapsed, breadcrumb }) {
       <Layout className={styles.layout}>
         <ImageViewer />
         <DetailPanel />
+        <Player />
         <Sider
           breakpoint="md"
           collapsedWidth="0"

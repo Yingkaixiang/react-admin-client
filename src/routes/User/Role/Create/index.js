@@ -1,5 +1,5 @@
 import React from 'react';
-import { Steps, Tree } from 'antd';
+import { Steps } from 'antd';
 import styles from './index.less';
 
 const Step = Steps.Step;

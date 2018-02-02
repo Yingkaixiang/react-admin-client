@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { Table, Button, Icon, Modal } from 'antd';
+import { Table, Button, Icon } from 'antd';
 import BraftEditor from 'braft-editor';
 import 'braft-editor/dist/braft.css';
 import Create from './Create';

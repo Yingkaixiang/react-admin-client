@@ -31,6 +31,12 @@ export default [{
   route: '/component/detailPanel',
   type: 0,
 }, {
+  id: 'components.player',
+  pid: 'components',
+  title: 'Player',
+  route: '/component/player',
+  type: 0,
+}, {
   id: 'advertisement',
   pid: '',
   title: '广告管理',
