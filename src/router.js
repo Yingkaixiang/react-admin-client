@@ -23,6 +23,7 @@ const routes = [{
   component: () => import('./routes/Component/DetailPanel/'),
 }, {
   path: '/component/player',
+  models: () => [import('./models/componentDoc/playerDoc')],
   component: () => import('./routes/Component/Player/'),
 }, {
   path: '/advertisement/banner',

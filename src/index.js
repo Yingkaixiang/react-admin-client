@@ -15,7 +15,6 @@ app.use(createLoading());
 app.model(require('./models/app').default);
 app.model(require('./models/components/imageViewer').default);
 app.model(require('./models/components/detailPanel').default);
-app.model(require('./models/components/player').default);
 
 // 4. Router
 app.router(require('./router').default);

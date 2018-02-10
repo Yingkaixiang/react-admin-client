@@ -1,18 +1,18 @@
 import React from 'react';
 import { Button } from 'antd';
 import { connect } from 'dva';
+import Player from '../../../components/Player/';
 import CodeBox from '../CodeBox/';
 import styles from '../index.less';
 
-function PlayerDoc({ dispatch }) {
-  const demo = (
-    <Button onClick={() => {showPlayer('https://relamov.rela.me/gyx.mp4')}}>视频播放</Button>
-  );
+const videoUrl = 'https://wsqncdn.miaopai.com/stream/Sk0rROF69k4fImT82ArrHzRaoTw49JUyd9nB4g___16_0_1517375502.mp4?ssig=0bd7057faecf47fffc49ea3075d45f90&time_stamp=1518258661656';
+const audioUrl = 'http://lzscuw.changba.com/815676430.mp3';
+
+function PlayerDoc({ dispatch, visible, url }) {
+  const demo = (<Button onClick={() => {showPlayer(videoUrl)}}>视频播放</Button>);
   const meta = (<div>播放器根据视频本身大小自适应并自动播放。</div>);
 
-  const demo1 = (
-    <Button onClick={() => {showPlayer('http://qiniuuwmp3.changba.com/1020584082.mp3')}}>音频播放</Button>
-  );
+  const demo1 = (<Button onClick={() => {showPlayer(audioUrl)}}>音频播放</Button>);
   const meta1 = (<div>自动播放音频</div>);
 
   const demo2 = (
@@ -22,13 +22,24 @@ function PlayerDoc({ dispatch }) {
 
   function showPlayer(url) {
     dispatch({
-      type: 'player/open',
-      payload: { url }
+      type: 'playerDoc/showPlayer',
+      payload: url,
+    });
+  }
+  
+  function hidePlayer() {
+    dispatch({
+      type: 'playerDoc/hidePlayer',
     });
   }
 
   return (
     <div>
+      <Player
+        visible={visible}
+        url={url}
+        onCancel={hidePlayer}
+      />
       <div className={styles.container}>
         <h1 className={styles.markdown}>Player 多媒体播放器</h1>
         <p>用于播放多媒体文件。</p>
@@ -69,4 +80,4 @@ function PlayerDoc({ dispatch }) {
   );
 }
 
-export default connect()(PlayerDoc);
+export default connect(data => data.playerDoc)(PlayerDoc);
