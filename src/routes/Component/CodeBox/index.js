@@ -16,11 +16,17 @@ class CodeBox extends Component {
   }
 
   render() {
-    const { demo, title, meta, code } = this.props;
+    const {
+      title,
+      meta,
+      code,
+      children,
+    } = this.props;
+
     return (
       <div className={styles['code-box']}>
         <div className={styles['code-box-demo']}>
-          {demo}
+          {children}
         </div>
         <div className={styles['code-box-meta']}>
           <div className={styles['code-box-title']}>{title}</div>
@@ -44,7 +50,6 @@ class CodeBox extends Component {
 }
 
 CodeBox.propTypes = {
-  demo: propTypes.element,
   title: propTypes.string,
   meta: propTypes.element,
 }

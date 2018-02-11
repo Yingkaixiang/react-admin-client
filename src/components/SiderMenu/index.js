@@ -44,7 +44,6 @@ const createMenu = (tree) => {
 function SiderMenu({ openKeys, dispatch, selectedKeys }) {
   // 展开菜单栏
   function onOpenChange(keys) {
-    console.dir(keys);
     let openKeys = [];
     let father = keys[0];
     for (let i = 0; i < keys.length; i += 1) {

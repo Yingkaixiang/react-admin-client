@@ -14,5 +14,9 @@ export default {
       }],
     });
     res.json(list);
-  }
-}
+  },
+
+  'POST /api/operationLog/export': (req, res) => {
+    res.json({ status: 1 });
+  },
+};

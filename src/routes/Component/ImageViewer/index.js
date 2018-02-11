@@ -22,19 +22,6 @@ function ImageViewerDoc({ dispatch }) {
     });
   }
 
-  const demo = (
-    <div className={styles['img-list']}>
-      { imgList.map((item, index) => (
-          <img
-            alt="图片"
-            src={item}
-            key={index}
-            onClick={() => {showOrigin(index);}} />)
-          )
-        }
-    </div>
-  );
-
   const meta = (
     <div>显示指定图片，可以直接在参数中配置。</div>
   );
@@ -59,10 +46,20 @@ function ImageViewerDoc({ dispatch }) {
       <div className={styles.container}>
         <h2>代码演示</h2>
         <CodeBox
-          demo={demo}
           title="显示指定图片"
           meta={meta}
-        />
+        >
+          <div className={styles['img-list']}>
+            { imgList.map((item, index) => (
+                <img
+                  alt="图片"
+                  src={item}
+                  key={index}
+                  onClick={() => {showOrigin(index);}} />)
+                )
+              }
+          </div>
+        </CodeBox>
       </div>
     </div>
   );

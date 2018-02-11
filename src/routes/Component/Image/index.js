@@ -18,21 +18,6 @@ function ImageDoc({ dispatch }) {
     });
   }
 
-  const demo = (
-    <Image
-      src="http://7xpdcb.com1.z0.glb.clouddn.com/banner/160e05b1c1830eba?imageView2/0/w/400/q/70"
-      className={styles.img1}
-      onClick={preview}
-    />
-  );
-
-  const demo1 = (
-    <Image
-      src=""
-      className={styles['img-error']}
-    />
-  );
-
   const meta = (
     <div>可以使用自定义样式，点击后使用 <Link to="/component/imageViewer">ImageViewer</Link> 进行预览。</div>
   );
@@ -62,12 +47,25 @@ function ImageDoc({ dispatch }) {
       <div className={styles.container}>
         <h2>代码演示</h2>
         <CodeBox
-          demo={demo}
           title="加载一张图片"
           meta={meta}
           code={code}
-        />
-        <CodeBox demo={demo1} title="图片加载失败" meta={meta1} />
+        >
+          <Image
+            src="http://7xpdcb.com1.z0.glb.clouddn.com/banner/160e05b1c1830eba?imageView2/0/w/400/q/70"
+            className={styles.img1}
+            onClick={preview}
+          />
+        </CodeBox>
+        <CodeBox
+          title="图片加载失败"
+          meta={meta1}
+        >
+          <Image
+            src=""
+            className={styles['img-error']}
+          />
+        </CodeBox>
       </div>
     </div>
   );

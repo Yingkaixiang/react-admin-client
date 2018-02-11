@@ -39,4 +39,58 @@ npm run start
 ## 成就
 
 1. 后台中必须使用到antd最新版本中的所有组件。
+
+* Button 按钮 ✔️
+* Icon 图标 ✔️ 
+* Grid 栅格
+* Layout 布局 ✔️ 
+* Affix 固钉
+* Breadcrumb 面包屑 ✔️ 
+* Dropdown 下拉菜单 ✔️ 
+* Menu 导航菜单 ✔️ 
+* Pagiantion 分页 ✔️ 
+* Steps 步骤条 ✔️ 
+* AutoComplete 自动完成
+* Cascader 级联选择
+* Checkbox 多选框
+* DatePicker 日期选择框
+* Form 表单 ✔️ 
+* Input 输入框 ✔️ 
+* InputNumber 数字输入框
+* Mention 提及
+* Rate 评分
+* Radio 单选框
+* Select 选择器 ✔️ 
+* Slider 滑动输入条
+* Switch 开关 ✔️ 
+* TreeSelect 树选择
+* TimePicker 时间选择框
+* Transfer 穿梭框
+* Upload 上传 ✔️ 
+* Avatar 头像 ✔️ 
+* Badge 徽标数 ✔️ 
+* Calendar 日历
+* Card 卡片 ✔️ 
+* Carousel 走马灯
+* Collapse 折叠面板
+* List 列表
+* Popover 气泡卡片
+* Tooltip 文字提示
+* Table 表格 ✔️ 
+* Tabs 标签页
+* Tag 标签 ✔️ 
+* Timeline 时间轴
+* Tree 树形控件 ✔️
+* Alert 警告提示
+* Modal 对话框 ✔️ 
+* Message 全局提示
+* Notification 通知提醒框 ✔️ 
+* Progress 进度条 ✔️ 
+* Popconfirm 气泡确认框
+* Spin 加载中
+* Anchor 锚点
+* BackTop 回到顶部 ✔️ 
+* Divider 分割线
+* LocaleProvider 国际化 ✔️
+
 2. 后台中必须使用到社区精选组件中不同类型的一个组件。

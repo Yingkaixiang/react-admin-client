@@ -3,11 +3,11 @@
  */
 
 import React from 'react';
-import { Table, Avatar, Button, Card } from 'antd';
+import { Table, Avatar, Button, Card, Progress } from 'antd';
 import { connect } from 'dva';
 import parser from 'ua-parser-js';
 
-function OperationLog({ dataSource, dispatch }) {
+function OperationLog({ dispatch, dataSource, percent, loading }) {
   const ua = parser(navigator.userAgent);
   // 显示头像
   function showAvatar(url) {
@@ -72,7 +72,9 @@ function OperationLog({ dataSource, dispatch }) {
 
   // 导出日志
   function exportLog() {
-    alert(13);
+    dispatch({
+      type: 'operationLog/exportLog',
+    });
   }
 
   return (
@@ -84,10 +86,17 @@ function OperationLog({ dataSource, dispatch }) {
           <div>
             <Card style={{ marginBottom: 16 }}>
               <Button
+                loading={loading}
                 icon="export"
                 type="primary"
                 onClick={exportLog}
               >导出</Button>
+              <Progress
+                percent={percent}
+                type="circle"
+                width={50}
+                style={{ marginLeft: 10 }}
+              />
             </Card>
             <Table
               rowKey={record => record.id}

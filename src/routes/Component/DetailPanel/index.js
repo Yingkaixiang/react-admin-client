@@ -11,10 +11,6 @@ function DetailPanelDoc({ dispatch }) {
     });
   }
 
-  const demo = (
-    <Button onClick={showDetail}>查看详情</Button>
-  );
-
   const meta = (
     <div>点击按钮可以查看详细信息</div>
   )
@@ -36,10 +32,11 @@ function DetailPanelDoc({ dispatch }) {
       <div className={styles.container}>
         <h2>代码演示</h2>
         <CodeBox
-          demo={demo}
           title="显示信息"
           meta={meta}
-        />
+        >
+          <Button onClick={showDetail}>查看详情</Button>
+        </CodeBox>
       </div>
     </div>
   );
