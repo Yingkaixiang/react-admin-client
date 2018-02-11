@@ -4,6 +4,11 @@ export default {
     visible: false,
     url: '',
   },
+  subscriptions: {
+    setup({ dispatch, history }) {
+      console.log(history);
+    },
+  },
   effects: {},
   reducers: {
     showPlayer(state, { payload }) {

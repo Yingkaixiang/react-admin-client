@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from '../index.less';
 
 class CodeBox extends Component {
@@ -50,8 +50,11 @@ class CodeBox extends Component {
 }
 
 CodeBox.propTypes = {
-  title: propTypes.string,
-  meta: propTypes.element,
+  title: PropTypes.string,
+  meta: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+  ]),
 }
 
 export default CodeBox;

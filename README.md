@@ -88,7 +88,7 @@ npm run start
 * Progress 进度条 ✔️ 
 * Popconfirm 气泡确认框
 * Spin 加载中
-* Anchor 锚点
+* Anchor 锚点 ✔️
 * BackTop 回到顶部 ✔️ 
 * Divider 分割线
 * LocaleProvider 国际化 ✔️
