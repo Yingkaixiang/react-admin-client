@@ -57,17 +57,13 @@ export default {
     // 交互位置
     exchangePos(state, { payload }) {
       const { dragIndex, hoverIndex, type } = payload;
-      console.dir(payload);
       const current = type === 'enable' ? state.enableList : state.disableList;
       const list = cloneDeep(current);
-      console.dir(list);
       const dragItem = list.splice(dragIndex, 1);
       list.splice(hoverIndex, 0, dragItem[0]);
       if (type === 'enable') {
-        console.log(1)
         return { ...state, enableList: list };
       } else {
-        console.log(2)
         return { ...state, disableList: list };
       }
     }

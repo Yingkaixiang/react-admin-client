@@ -6,6 +6,12 @@
  */
 
 export default [{
+  id: 'util',
+  title: '实用工具',
+  icon: 'tool',
+  route: '/util',
+  type: 0,
+}, {
   id: 'components',
   pid: '',
   title: '组件列表',

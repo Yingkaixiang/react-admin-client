@@ -48,7 +48,11 @@ const routes = [{
 }, {
   path: '/operationLog',
   models: () => [import('./models/operationLog/')],
-  component: () => import('./routes/OperationLog/')
+  component: () => import('./routes/OperationLog/'),
+}, {
+  path: '/util',
+  models: () => [import('./models/util/')],
+  component: () => import('./routes/Util/'),
 }, {
   path: '*',
   component: () => import('./routes/PageNotFound/'),
